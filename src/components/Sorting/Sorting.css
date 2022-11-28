@@ -1,0 +1,25 @@
+.sorting {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.sorting-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+}
+
+.sorting-range-input {
+  width: 50px;
+}
+
+.sorting input {
+  height: 30px;
+}
+
+.sorting button {
+  cursor: pointer;
+  height: 30px;
+  width: 70px;
+}
