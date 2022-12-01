@@ -1,16 +1,45 @@
-import { GetMoviesAPI } from "./api";
+import { useState } from "react";
 import Movie from "./components/Movie/Movie";
-import Sorting from "./components/Sorting/Sorting";
+import Filters from "./components/Filters/Filters";
+import { useMovie } from "./hooks/useMovie";
+
+const initialFilters = {
+  keyword: null,
+  director: null,
+  rank: {
+    from: null,
+    to: null,
+  },
+  year: {
+    from: null,
+    to: null,
+  },
+  rating: {
+    from: null,
+    to: null,
+  },
+};
 
 const App = () => {
-  const data = GetMoviesAPI();
+  const [filters, setFilters] = useState(initialFilters);
+  const { list, clearMovieFilters, applyFilters } = useMovie(filters);
+
+  const clearFilters = () => {
+    clearMovieFilters();
+    setFilters(initialFilters);
+  };
 
   return (
     <div className="app">
       <h1>Find your movie...</h1>
-      <Sorting />
+      <Filters
+        filters={filters}
+        setFilters={setFilters}
+        onClearHandler={clearFilters}
+        onFilterHandler={applyFilters}
+      />
       <div>
-        {data.map((movie) => (
+        {list.map((movie) => (
           <Movie key={movie.id} movie={movie} />
         ))}
       </div>
