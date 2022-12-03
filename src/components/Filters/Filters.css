@@ -1,29 +1,29 @@
-.sorting {
+.filters {
   display: flex;
   align-items: flex-end;
   margin-bottom: 10px;
 }
 
-.sorting-container {
+.filters-container {
   display: flex;
   flex-direction: column;
   margin: 0 10px;
 }
 
-.sorting-range-input {
+.filters-range-input {
   width: 50px;
 }
 
-.sorting input {
+.filters input {
   height: 30px;
 }
 
-.sorting-buttons {
+.filters-buttons {
   display: flex;
   flex-direction: column;
 }
 
-.sorting-clear-button {
+.filters-clear-button {
   border: none;
   width: 100px;
   display: inline;
@@ -31,7 +31,7 @@
   color: red;
 }
 
-.sorting button {
+.filters button {
   cursor: pointer;
   height: 30px;
 }

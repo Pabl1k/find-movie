@@ -5,7 +5,7 @@ import { useMovie } from "./hooks/useMovie";
 
 const initialFilters = {
   keyword: null,
-  director: null,
+  crew: null,
   rank: {
     from: null,
     to: null,
@@ -24,6 +24,8 @@ const App = () => {
   const [filters, setFilters] = useState(initialFilters);
   const { list, clearMovieFilters, applyFilters } = useMovie(filters);
 
+  const moviesCount = list.length;
+
   const clearFilters = () => {
     clearMovieFilters();
     setFilters(initialFilters);
@@ -31,7 +33,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>Find your movie...</h1>
+      <h1>Find your movie... ({`${moviesCount}/250`})</h1>
       <Filters
         filters={filters}
         setFilters={setFilters}

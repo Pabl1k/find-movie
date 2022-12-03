@@ -1,18 +1,18 @@
 import "./Filters.css";
 
 const RangeInput = ({ title, fromValue, toValue, onFromChange, onToChange }) => (
-  <div className="sorting-container">
+  <div className="filters-container">
     <span>{title}</span>
     <div style={{ display: "flex" }}>
       <input
-        className="sorting-range-input"
+        className="filters-range-input"
         type="number"
         placeholder="From"
         value={fromValue}
         onChange={onFromChange}
       />
       <input
-        className="sorting-range-input"
+        className="filters-range-input"
         type="number"
         placeholder="To"
         value={toValue}
@@ -53,9 +53,9 @@ const Filters = ({ filters, setFilters, onClearHandler, onFilterHandler }) => {
   };
 
   return (
-    <div className="sorting">
+    <div className="filters">
       <h3>Filters:</h3>
-      <div className="sorting-container">
+      <div className="filters-container">
         <span>Keyword</span>
         <input
           placeholder="Enter keyword..."
@@ -63,12 +63,12 @@ const Filters = ({ filters, setFilters, onClearHandler, onFilterHandler }) => {
           onChange={(e) => change("keyword", e.currentTarget.value)}
         />
       </div>
-      <div className="sorting-container">
-        <span>Director</span>
+      <div className="filters-container">
+        <span>Crew</span>
         <input
-          placeholder="Enter director name..."
-          value={filters.director || ""}
-          onChange={(e) => change("director", e.currentTarget.value)}
+          placeholder="Enter crew name..."
+          value={filters.crew || ""}
+          onChange={(e) => change("crew", e.currentTarget.value)}
         />
       </div>
       <RangeInput
@@ -98,9 +98,9 @@ const Filters = ({ filters, setFilters, onClearHandler, onFilterHandler }) => {
         }
         onToChange={(e) => changeRange("rating", "to", +e.currentTarget.value)}
       />
-      <div className="sorting-buttons">
+      <div className="filters-buttons">
         <button onClick={onFilterHandler}>Filter</button>
-        <button className="sorting-clear-button" onClick={onClearHandler}>
+        <button className="filters-clear-button" onClick={onClearHandler}>
           Clear filters
         </button>
       </div>
